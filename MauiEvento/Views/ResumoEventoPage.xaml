@@ -1,0 +1,19 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiEvento.Views.ResumoEventoPage"
+             Title="Resumo do Evento">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Resumo do Evento" FontSize="20" FontAttributes="Bold" />
+
+            <Label x:Name="nomeLabel" />
+            <Label x:Name="dataLabel" />
+            <Label x:Name="participantesLabel" />
+            <Label x:Name="localLabel" />
+            <Label x:Name="duracaoLabel" />
+            <Label x:Name="custoTotalLabel" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
