@@ -1,5 +1,4 @@
 using MauiEvento.Models;
-using System.Data;
 
 namespace MauiEvento.Views;
 
@@ -10,7 +9,7 @@ public partial class ResumoEventoPage : ContentPage
         InitializeComponent();
 
         nomeLabel.Text = $"Nome: {evento.Nome}";
-        dataLabel.Text = $"De {evento.DataInicio:dd/MM/yyyy} até {evento.DataTermino:dd/MM/yyyy}";
+        dataLabel.Text = $"Início: {evento.DataInicio:dd/MM/yyyy} - Término: {evento.DataTermino:dd/MM/yyyy}";
         participantesLabel.Text = $"Participantes: {evento.NumeroParticipantes}";
         localLabel.Text = $"Local: {evento.Local}";
         duracaoLabel.Text = $"Duração: {evento.DuracaoEmDias} dias";

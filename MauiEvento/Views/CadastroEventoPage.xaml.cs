@@ -4,22 +4,33 @@ namespace MauiEvento.Views;
 
 public partial class CadastroEventoPage : ContentPage
 {
-    private Evento evento;
+    public Evento EventoAtual { get; set; } = new();
+
+    public List<string> TiposEvento { get; set; } = new()
+    {
+        "Google Developer Conference",
+        "Workshop de Tecnologia e Inovação",
+        "Inovação e Empreendedorismo"
+    };
+
+    public List<string> LocaisDisponiveis { get; set; } = new()
+    {
+        "Expo Center São Paulo-SP",
+        "Florianópolis-SC",
+        "Porto Alegre-RS"
+    };
 
     public CadastroEventoPage()
     {
         InitializeComponent();
-        evento = new Evento
-        {
-            DataInicio = DateTime.Today,
-            DataTermino = DateTime.Today,
-            NumeroParticipantes = 1
-        };
-        BindingContext = evento;
+        BindingContext = this;
+
+        EventoAtual.Nome = TiposEvento.First();
+        EventoAtual.Local = LocaisDisponiveis.First();
     }
 
     private async void OnCadastrarEventoClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new ResumoEventoPage(evento));
+        await Navigation.PushAsync(new ResumoEventoPage(EventoAtual));
     }
 }

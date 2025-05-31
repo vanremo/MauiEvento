@@ -1,37 +1,43 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             x:Class="MauiEvento.Views.CadastroEventoPage"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Title="Cadastro de Evento"
-             BackgroundColor="White">
+             x:Class="MauiEvento.Views.CadastroEventoPage"
+             Title="Cadastro de Evento">
+
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
 
             <Label Text="Nome do Evento" FontSize="16"/>
-            <Entry Placeholder="Ex: Google Developer Conference" Text="{Binding Nome}" />
-
+            <Picker Title="Selecione o Evento"
+        ItemsSource="{Binding TiposEvento}"
+        SelectedItem="{Binding EventoAtual.Nome}" />
+            
             <Label Text="Data de Início" FontSize="16"/>
-            <DatePicker Date="{Binding DataInicio}" />
+            <DatePicker Date="{Binding EventoAtual.DataInicio}" Format="dd/MM/yyyy"/>
 
             <Label Text="Data de Término" FontSize="16"/>
-            <DatePicker Date="{Binding DataTermino}" />
+            <DatePicker Date="{Binding EventoAtual.DataTermino}" Format="dd/MM/yyyy"/>
 
-            <Label FontSize="16" Text="Número de Participantes: {Binding NumeroParticipantes}" />
-            <Stepper Value="{Binding NumeroParticipantes}" Minimum="1" Maximum="1000" Increment="1" />
-
+            <Label Text="Número de Participantes" FontSize="16"/>
+            <Label Text="{Binding EventoAtual.NumeroParticipantes}" FontSize="14" TextColor="Gray"/>
+            <Stepper Minimum="1"
+                     Maximum="1000"
+                     Increment="1"
+                     Value="{Binding EventoAtual.NumeroParticipantes}" />
+            
             <Label Text="Local do Evento" FontSize="16"/>
-            <Entry Placeholder="Ex: São Paulo Expo Center" Text="{Binding Local}" />
+            <Picker Title="Selecione o local" 
+                    ItemsSource="{Binding LocaisDisponiveis}" 
+                    SelectedItem="{Binding EventoAtual.Local}" />
 
             <Label Text="Custo por Participante (R$)" FontSize="16"/>
-            <Entry Placeholder="Ex: 250.00" Keyboard="Numeric" Text="{Binding CustoPorParticipante}" />
+            <Entry Keyboard="Numeric" Text="{Binding EventoAtual.CustoPorParticipante}" />
 
-            <Button Text="Cadastrar Evento"
+            <Button Text="Cadastrar Evento" 
                     Clicked="OnCadastrarEventoClicked"
                     BackgroundColor="#6200EE"
                     TextColor="White"
-                    CornerRadius="12"
-                    FontSize="16"
-                    HeightRequest="50"
-                    HorizontalOptions="Fill" />
+                    CornerRadius="10"
+                    HeightRequest="50"/>
 
         </VerticalStackLayout>
     </ScrollView>
