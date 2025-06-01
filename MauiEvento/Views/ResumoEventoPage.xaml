@@ -1,18 +1,27 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiEvento.Views.ResumoEventoPage"
-             Title="Resumo do Evento">
+             Title="Resumo do Evento"
+             BackgroundColor="Black">
+
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
 
-            <Label Text="Resumo do Evento" FontSize="20" FontAttributes="Bold" />
+            <Label Text="Cadastro Concluído"
+                   FontSize="30"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="LimeGreen" />
 
-            <Label x:Name="nomeLabel" />
-            <Label x:Name="dataLabel" />
-            <Label x:Name="participantesLabel" />
-            <Label x:Name="localLabel" />
-            <Label x:Name="duracaoLabel" />
-            <Label x:Name="custoTotalLabel" />
+            <Label x:Name="nomeLabel" FontSize="20" TextColor="White" />
+            <Label x:Name="dataLabel" FontSize="20" TextColor="White" />
+            <Label x:Name="participantesLabel" FontSize="20" TextColor="White" />
+            <Label x:Name="localLabel" FontSize="20" TextColor="White" />
+            <Label x:Name="duracaoLabel" FontSize="20" TextColor="White" />
+            <Label x:Name="custoTotalLabel" FontSize="30"
+                   TextColor="Yellow"
+                   HorizontalOptions="Center"
+                   BackgroundColor="DimGray" />
 
         </VerticalStackLayout>
     </ScrollView>

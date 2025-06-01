@@ -7,9 +7,9 @@ namespace MauiEvento.Models
         private string nome;
         private DateTime dataInicio = DateTime.Today;
         private DateTime dataTermino = DateTime.Today;
-        private int numeroParticipantes = 1;
+        private int numeroParticipantes = 0;
         private string local;
-        private double custoPorParticipante = 250.00;
+        private double custoPorParticipante = 0;
 
         public string Nome
         {

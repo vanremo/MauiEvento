@@ -3,42 +3,82 @@
              x:Class="MauiEvento.Views.CadastroEventoPage"
              Title="Cadastro de Evento">
 
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#6E6E6E" Offset="0.2" />
+            <GradientStop Color="#2A5298" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <Border Stroke="White" BackgroundColor="Black" StrokeThickness="2" Padding="15" StrokeShape="RoundRectangle 30">
+                <!-- Imagem no topo -->
+                <Image Source="logo_evento.png" HeightRequest="150" HorizontalOptions="Center"/>
 
-            <Label Text="Nome do Evento" FontSize="16"/>
-            <Picker Title="Selecione o Evento"
-        ItemsSource="{Binding TiposEvento}"
-        SelectedItem="{Binding EventoAtual.Nome}" />
-            
-            <Label Text="Data de Início" FontSize="16"/>
-            <DatePicker Date="{Binding EventoAtual.DataInicio}" Format="dd/MM/yyyy"/>
+            </Border>
+           
 
-            <Label Text="Data de Término" FontSize="16"/>
-            <DatePicker Date="{Binding EventoAtual.DataTermino}" Format="dd/MM/yyyy"/>
+            <!-- Conteúdo principal dentro da borda branca -->
+            <Border Stroke="White" BackgroundColor="LightSlateGrey" StrokeThickness="2" Padding="15" StrokeShape="RoundRectangle 30">
+                <VerticalStackLayout Spacing="15">
 
-            <Label Text="Número de Participantes" FontSize="16"/>
-            <Label Text="{Binding EventoAtual.NumeroParticipantes}" FontSize="14" TextColor="Gray"/>
-            <Stepper Minimum="1"
-                     Maximum="1000"
-                     Increment="1"
-                     Value="{Binding EventoAtual.NumeroParticipantes}" />
-            
-            <Label Text="Local do Evento" FontSize="16"/>
-            <Picker Title="Selecione o local" 
-                    ItemsSource="{Binding LocaisDisponiveis}" 
-                    SelectedItem="{Binding EventoAtual.Local}" />
+                    <Label Text="Cadastro Eventos" FontSize="40"
+                           TextColor="GreenYellow"
+                           HorizontalOptions="Center"/>
+                   
 
-            <Label Text="Custo por Participante (R$)" FontSize="16"/>
-            <Entry Keyboard="Numeric" Text="{Binding EventoAtual.CustoPorParticipante}" />
+                    <Picker Title="Selecione o Evento" FontSize="16"
+                            
+                    ItemsSource="{Binding TiposEvento}"
+                            SelectedItem="{Binding EventoAtual.Nome}"
+                            BackgroundColor="White"/>
 
-            <Button Text="Cadastrar Evento" 
+                    <Label Text="Data de Início" FontSize="16"
+                            BackgroundColor="{StaticResource Gray300}"/>
+                    <DatePicker Date="{Binding EventoAtual.DataInicio}" Format="dd/MM/yyyy"
+                                BackgroundColor="White"/>
+
+
+                    <Label Text="Data de Término" FontSize="16"
+                            BackgroundColor="{StaticResource Gray300}" />
+                    <DatePicker Date="{Binding EventoAtual.DataTermino}" Format="dd/MM/yyyy"
+                                BackgroundColor="White"/>
+                    
+
+                    <Label Text="Número de Participantes" FontSize="16"
+                            BackgroundColor="{StaticResource Gray300}"/>
+                    <Entry Placeholder="Digite o número de participantes"
+                           Keyboard="Numeric"
+                           Text="{Binding EventoAtual.NumeroParticipantes}" 
+                           BackgroundColor="White"/>
+                    
+
+                    <Label Text="Local do Evento" FontSize="16"
+                           BackgroundColor="{StaticResource Gray300}"/>
+                    <Picker Title="Selecione o local"     
+                    ItemsSource="{Binding LocaisDisponiveis}"
+                            SelectedItem="{Binding EventoAtual.Local}" 
+                            BackgroundColor="White"/>
+
+
+                    <Label Text="Custo por Participante (R$)" FontSize="16"
+                           BackgroundColor="{StaticResource Gray300}"/>
+                    <Entry Keyboard="Numeric" Text="{Binding EventoAtual.CustoPorParticipante}" 
+                           BackgroundColor="White"/>
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Botão fora da borda -->
+            <Button Text="Cadastrar Evento"
                     Clicked="OnCadastrarEventoClicked"
-                    BackgroundColor="#6200EE"
-                    TextColor="White"
-                    CornerRadius="10"
-                    HeightRequest="50"/>
-
+                    BackgroundColor="GreenYellow"
+                    TextColor="Black"
+                    FontSize="20"
+                    CornerRadius="25"
+                    HeightRequest="50" 
+                    HorizontalOptions="Center"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
